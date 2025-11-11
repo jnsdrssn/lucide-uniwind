@@ -9,6 +9,8 @@
     "storybook-static"
   ],
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "emitDeclarationOnly": true
   }
 }
