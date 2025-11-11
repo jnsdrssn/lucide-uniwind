@@ -12,6 +12,41 @@
   },
   "license": "ISC",
   "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./index.web": {
+      "types": "./dist/types/index.web.d.ts",
+      "import": "./dist/esm/index.web.js",
+      "require": "./dist/cjs/index.web.js",
+      "default": "./dist/esm/index.web.js"
+    },
+    "./iconWithClassName": {
+      "types": "./dist/types/iconWithClassName.d.ts",
+      "import": "./dist/esm/iconWithClassName.js",
+      "require": "./dist/cjs/iconWithClassName.js",
+      "default": "./dist/esm/iconWithClassName.js"
+    },
+    "./icons/*": {
+      "types": "./dist/types/icons/*.d.ts",
+      "import": "./dist/esm/icons/*.js",
+      "require": "./dist/cjs/icons/*.js",
+      "default": "./dist/esm/icons/*.js"
+    },
+    "./package.json": "./package.json"
+  },
   "devDependencies": {
     "@babel/cli": "^7.22.10",
     "@babel/core": "^7.22.10",
@@ -40,7 +75,6 @@
     "react-native-svg": "^15.9.0",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.2",
     "tslib": "^2.6.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
@@ -48,15 +82,18 @@
   },
   "scripts": {
     "generate": "tsx scripts/generateIcons",
-    "build": "yarn generate && rimraf dist && yarn build:esm && yarn build:cjs && yarn build:tsc && node --loader ts-node/esm scripts/copyFiles.ts",
+    "build": "yarn generate && rimraf dist && yarn build:esm && yarn build:cjs && yarn build:tsc",
     "build:esm": "cross-env BABEL_ENV=esmUnbundled babel src --extensions '.ts,.tsx' --out-dir 'dist/esm' --copy-files --no-copy-ignored",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --extensions '.ts,.tsx' --out-dir 'dist/cjs'",
     "build:tsc": "tsc --project tsconfig.prod.json",
     "test": "jest"
   },
   "peerDependencies": {
+    "lucide-react": "0.553.0",
+    "lucide-react-native": "0.553.0",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "uniwind": "^1.0.0"
   },
   "keywords": [
     "lucide",
