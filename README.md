@@ -8,8 +8,6 @@ A drop in replacement for `lucide-react-native` to work with Uniwind. It provide
 
 ## Installation
 
-You can use either npm or yarn:
-
 Using npm:
 
 ```bash
@@ -20,6 +18,12 @@ Using yarn:
 
 ```bash
 yarn add lucide-uniwind
+```
+
+Using bun:
+
+```bash
+bun add lucide-uniwind
 ```
 
 ## Usage
