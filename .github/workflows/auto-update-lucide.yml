@@ -61,11 +61,13 @@ jobs:
           # Update all lucide dependencies to the latest version
           yarn add -D lucide@$LATEST_VERSION lucide-react@$LATEST_VERSION lucide-react-native@$LATEST_VERSION
 
-          # Update package.json version to match lucide version
+          # Update package.json version and peerDependencies to match lucide version
           node -e "
             const fs = require('fs');
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
             pkg.version = '$LATEST_VERSION';
+            pkg.peerDependencies['lucide-react'] = '$LATEST_VERSION';
+            pkg.peerDependencies['lucide-react-native'] = '$LATEST_VERSION';
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
           "
 
@@ -76,8 +78,8 @@ jobs:
       - name: Commit and push changes
         if: steps.check-updates.outputs.update_available == 'true'
         run: |
-          git config --local user.email "alex@a16n.dev"
-          git config --local user.name "A16N"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "Update lucide dependencies to ${{ steps.check-updates.outputs.latest_version }}"
           git push origin main
@@ -126,6 +128,6 @@ jobs:
         run: yarn build
 
       - name: Publish to npm
-        run: cd dist && npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
