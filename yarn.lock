@@ -7069,8 +7069,8 @@ __metadata:
     typescript: "npm:^5.7.3"
     uniwind: "npm:^1.0.0"
   peerDependencies:
-    lucide-react: 0.553.0
-    lucide-react-native: 0.553.0
+    lucide-react: 0.575.0
+    lucide-react-native: 0.575.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
     uniwind: ^1.0.0
