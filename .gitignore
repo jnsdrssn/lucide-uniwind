@@ -9,3 +9,4 @@
 src
 node_modules
 dist
+.idea/

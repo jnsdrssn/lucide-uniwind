@@ -1,6 +1,6 @@
 # Lucide Icons for React Native with Uniwind
 
-[![npm](https://img.shields.io/npm/v/lucide-nativewind?color=blue)](https://www.npmjs.com/package/lucide-uniwind)
+[![npm](https://img.shields.io/npm/v/lucide-uniwind?color=blue)](https://www.npmjs.com/package/lucide-uniwind)
 ![NPM Downloads](https://img.shields.io/npm/dw/lucide-uniwind)
 [![GitHub](https://img.shields.io/github/license/lucide-icons/lucide)](https://lucide.dev/license)
 

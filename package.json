@@ -62,10 +62,8 @@
     "@types/node": "^22.4.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.3",
-    "@vitest/ui": "^3.0.5",
     "cross-env": "^10.0.0",
     "jest": "^30.0.2",
-    "jsdom": "^26.0.0",
     "lucide": "0.575.0",
     "lucide-react": "0.575.0",
     "lucide-react-native": "0.575.0",
@@ -93,12 +91,39 @@
     "lucide-react-native": "0.575.0",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-native": "*",
+    "react-native-svg": "*",
     "uniwind": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "lucide-react": {
+      "optional": true
+    },
+    "lucide-react-native": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18"
   },
   "keywords": [
     "lucide",
     "react",
+    "react-native",
     "icons",
+    "svg",
+    "icon-library",
+    "tree-shakable",
+    "className",
     "uniwind"
   ]
 }
