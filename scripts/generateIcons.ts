@@ -105,7 +105,10 @@ export type LucidePropsWithClassName = LucideProps & {
  * Helper function that wraps a LucideIcon with \`withUniwind\` to allow for styling with the \`className\` prop
  */
 export default function iconWithClassName(icon: (props: LucideProps) => ReactNode): (props: LucidePropsWithClassName) => ReactNode {
-  return withUniwind(icon);
+  return withUniwind(icon, {
+    width: { fromClassName: "className", styleProperty: "width" },
+    height: { fromClassName: "className", styleProperty: "height" },
+  });
 }`;
 
 writeFileSync(`src/iconWithClassName.ts`, iconWithClassNameFile);
