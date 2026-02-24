@@ -108,6 +108,7 @@ export default function iconWithClassName(icon: (props: LucideProps) => ReactNod
   return withUniwind(icon, {
     width: { fromClassName: "className", styleProperty: "width" },
     height: { fromClassName: "className", styleProperty: "height" },
+    style: { fromClassName: "className" },
   });
 }`;
 
