@@ -93,23 +93,32 @@ writeFileSync(`src/index.ts`, barrelExports.join("\n"));
 writeFileSync(`src/index.web.ts`, barrelExportsWeb.join("\n"));
 
 // generate iconWithClassName file
-const iconWithClassNameFile = `import {ReactNode} from 'react';
+const iconWithClassNameFile = `import {createElement, ReactNode} from 'react';
 import type { LucideProps } from 'lucide-react-native';
-import { withUniwind } from 'uniwind';
+import { withUniwind, useResolveClassNames } from 'uniwind';
 
 export type LucidePropsWithClassName = LucideProps & {
     className?: string;
 }
 
 /**
- * Helper function that wraps a LucideIcon with \`withUniwind\` to allow for styling with the \`className\` prop
+ * Helper function that wraps a LucideIcon with \`withUniwind\` to allow for styling with the \`className\` prop.
+ * Uses auto mode for general style mapping (colors, etc.) and additionally extracts width/height
+ * as props so that react-native-svg correctly sizes the SVG viewport.
  */
 export default function iconWithClassName(icon: (props: LucideProps) => ReactNode): (props: LucidePropsWithClassName) => ReactNode {
-  return withUniwind(icon, {
-    width: { fromClassName: "className", styleProperty: "width" },
-    height: { fromClassName: "className", styleProperty: "height" },
-    style: { fromClassName: "className" },
-  });
-}`;
+  const Wrapped = withUniwind(icon);
+
+  return function WrappedIcon(props: LucidePropsWithClassName) {
+    const styles = useResolveClassNames(props.className ?? '');
+
+    const extraProps: Record<string, any> = {};
+    if (styles.width !== undefined) extraProps.width = styles.width;
+    if (styles.height !== undefined) extraProps.height = styles.height;
+
+    return createElement(Wrapped as any, { ...extraProps, ...props });
+  };
+}
+`;
 
 writeFileSync(`src/iconWithClassName.ts`, iconWithClassNameFile);
