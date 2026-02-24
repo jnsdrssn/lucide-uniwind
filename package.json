@@ -1,7 +1,7 @@
 {
   "name": "lucide-uniwind",
   "description": "Lucide icons for React Native, with a ClassName prop for Uniwind",
-  "version": "0.575.0",
+  "version": "0.575.1",
   "packageManager": "yarn@4.5.2",
   "sideEffects": false,
   "author": "Alexander Nicholson & Jonas Derissen",
