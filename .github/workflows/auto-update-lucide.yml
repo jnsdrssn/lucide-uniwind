@@ -74,7 +74,7 @@ jobs:
 
       - name: Update lockfile
         if: steps.check-updates.outputs.update_available == 'true'
-        run: yarn install
+        run: yarn install --no-immutable
 
       - name: Commit and push changes
         if: steps.check-updates.outputs.update_available == 'true'
