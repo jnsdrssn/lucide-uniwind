@@ -119,8 +119,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v5
         with:
-          node-version: 18
+          node-version: 22
           registry-url: https://registry.npmjs.org
+
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: yarn
@@ -129,6 +132,4 @@ jobs:
         run: yarn build
 
       - name: Publish to npm
-        run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
