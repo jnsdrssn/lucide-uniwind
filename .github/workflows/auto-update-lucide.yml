@@ -17,13 +17,13 @@ jobs:
       update_applied: ${{ steps.check-updates.outputs.update_available }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
@@ -94,7 +94,7 @@ jobs:
       released: ${{ steps.release.outputs.released }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
@@ -112,12 +112,12 @@ jobs:
     if: needs.create-release.outputs.released == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
 
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
