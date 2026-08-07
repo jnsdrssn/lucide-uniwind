@@ -1,7 +1,7 @@
 {
   "name": "lucide-uniwind",
   "description": "Lucide icons for React Native, with a ClassName prop for Uniwind",
-  "version": "1.28.0",
+  "version": "1.29.0",
   "packageManager": "yarn@4.5.2",
   "sideEffects": false,
   "author": "Alexander Nicholson & Jonas Derissen",
@@ -64,9 +64,9 @@
     "@types/react-dom": "^19.0.3",
     "cross-env": "^10.0.0",
     "jest": "^30.0.2",
-    "lucide": "1.28.0",
-    "lucide-react": "1.28.0",
-    "lucide-react-native": "1.28.0",
+    "lucide": "1.29.0",
+    "lucide-react": "1.29.0",
+    "lucide-react-native": "1.29.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-native": "^0.80.2",
@@ -87,8 +87,8 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "lucide-react": "1.28.0",
-    "lucide-react-native": "1.28.0",
+    "lucide-react": "1.29.0",
+    "lucide-react-native": "1.29.0",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-native": "*",
