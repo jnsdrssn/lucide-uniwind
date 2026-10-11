@@ -1,5 +1,29 @@
-import { mkdirSync, rmSync, writeFileSync } from "fs";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
+import { fileURLToPath } from "url";
 import { icons } from "lucide";
+
+/**
+ * Each icon's module in lucide-react-native, read from its own barrel: the
+ * file names are lucide's ("a-arrow-down"), not what toKebabCase makes of the
+ * component name ("aarrow-down"). Importing an icon from its module rather
+ * than the package root keeps a bundler without tree shaking (Metro) from
+ * pulling in every icon for each one used.
+ */
+const nativeIconFiles = (() => {
+  const barrel = readFileSync(
+    fileURLToPath(import.meta.resolve("lucide-react-native")),
+    "utf8"
+  );
+  const files = new Map<string, string>();
+  for (const [, names, file] of barrel.matchAll(
+    /export \{([^}]*)\} from '\.\/icons\/([^']+)\.mjs'/g
+  )) {
+    for (const [, name] of names.matchAll(/default as (\w+)/g)) {
+      files.set(name, file);
+    }
+  }
+  return files;
+})();
 
 type SVGProps = Record<string, string | number>;
 type IconNodeChild = readonly [tag: string, attrs: SVGProps];
@@ -42,7 +66,12 @@ Object.entries(icons).forEach(([iconName, iconContent]) => {
   // filename is icon.ts
   const filename = `src/${ICON_PATH}/${iconNameLowerCase}.tsx`;
 
-  const fileContent = `import { ${iconName} } from "lucide-react-native";
+  const nativeFile = nativeIconFiles.get(iconName);
+  if (nativeFile === undefined) {
+    throw new Error(`lucide-react-native has no module for ${iconName}`);
+  }
+
+  const fileContent = `import ${iconName} from "lucide-react-native/icons/${nativeFile}";
 import iconWithClassName from '../iconWithClassName';
 /**
  *  [${iconName} on lucide.dev](https://lucide.dev/icons/${toKebabCase(

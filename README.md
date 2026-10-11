@@ -37,6 +37,16 @@ All icons can be imported the same as if using the `lucide-react-native` package
 + import { ArrowLeftCircleIcon } from 'lucide-uniwind';
 ```
 
+### Smaller bundles with Metro
+
+Metro does not tree-shake, so importing from the package root bundles (and loads) every icon. Import each icon from its own module instead, and only the icons you use are bundled:
+
+```jsx
+import CalendarIcon from "lucide-uniwind/icons/calendar";
+```
+
+Each icon module imports only its own icon from `lucide-react-native`.
+
 ## Custom Icons
 
 Custom icons can be wrapped with `iconWithClassName` to add the `className` prop.
