@@ -135,11 +135,17 @@ export type LucidePropsWithClassName = LucideProps & {
  * Uses auto mode for general style mapping (colors, etc.) and additionally extracts width/height
  * as props so that react-native-svg correctly sizes the SVG viewport.
  */
+/** A width, height or size utility, possibly behind variants (\`md:w-6\`). */
+const SIZE_CLASS = /(?:^|\\s)(?:[\\w-]+:)*(?:w|h|size)-/;
+
 export default function iconWithClassName(icon: (props: LucideProps) => ReactNode): (props: LucidePropsWithClassName) => ReactNode {
   const Wrapped = withUniwind(icon);
 
   return function WrappedIcon(props: LucidePropsWithClassName) {
-    const styles = useResolveClassNames(props.className ?? '');
+    // withUniwind resolves the className for every other style; this second
+    // lookup only reads a size, so it is skipped when there is none.
+    const className = props.className ?? '';
+    const styles = useResolveClassNames(SIZE_CLASS.test(className) ? className : '');
 
     const extraProps: Record<string, any> = {};
     if (styles.width !== undefined) extraProps.width = styles.width;
