@@ -6639,9 +6639,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react-native@npm:1.82.0":
-  version: 1.82.0
-  resolution: "lucide-react-native@npm:1.82.0"
+"lucide-react-native@npm:1.83.0":
+  version: 1.83.0
+  resolution: "lucide-react-native@npm:1.83.0"
   peerDependencies:
     "@types/react": "*"
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -6650,20 +6650,20 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/4e831217552bc4c0ff3c9709688cdcd1df54ceccac7559efda45b138d5013c54260da03925811be2f65eeedadad4c84defefe585a09f1160812db91f1c43387a
+  checksum: 10/4857f27a7acefd213adea4d73f72cafa608250599afd50b8bcf6f1377a1eb45e898b929248f620267a67a579e19917b3a1bccae3e8e538fb1bb1b0a9bec649c8
   languageName: node
   linkType: hard
 
-"lucide-react@npm:1.82.0":
-  version: 1.82.0
-  resolution: "lucide-react@npm:1.82.0"
+"lucide-react@npm:1.83.0":
+  version: 1.83.0
+  resolution: "lucide-react@npm:1.83.0"
   peerDependencies:
     "@types/react": "*"
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/603643e7de9f23d8a6a015c0b27b2303c8e1962f82fce325f64f59a86733a0d38252735538be8a2a2052c790431ae3ec7bcef70211a7f0be75b3ded6a484f3be
+  checksum: 10/40f1c3d855f394fb270f7455da1d7c1bd3ff2bdbbc3ad4d556a16d27bf1f021aaeb2562d1dcc3b248b8a8380916951d44c8e6f15c19943995baa3d21c442bb77
   languageName: node
   linkType: hard
 
@@ -6687,9 +6687,9 @@ __metadata:
     "@types/react-dom": "npm:^19.0.3"
     cross-env: "npm:^10.0.0"
     jest: "npm:^30.0.2"
-    lucide: "npm:1.82.0"
-    lucide-react: "npm:1.82.0"
-    lucide-react-native: "npm:1.82.0"
+    lucide: "npm:1.83.0"
+    lucide-react: "npm:1.83.0"
+    lucide-react-native: "npm:1.83.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     react-native: "npm:^0.80.2"
@@ -6701,8 +6701,8 @@ __metadata:
     typescript: "npm:^5.7.3"
     uniwind: "npm:^1.0.0"
   peerDependencies:
-    lucide-react: 1.82.0
-    lucide-react-native: 1.82.0
+    lucide-react: 1.83.0
+    lucide-react-native: 1.83.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-native: "*"
@@ -6722,10 +6722,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"lucide@npm:1.82.0":
-  version: 1.82.0
-  resolution: "lucide@npm:1.82.0"
-  checksum: 10/89e8cc0e695894ebba56e99aec91a196524d49d224e4da59b718f3507aed5a8c20ece2bc0a11b48a181a04b63eca2424859b2db10df36d2e1a0b0b4c8e9f5917
+"lucide@npm:1.83.0":
+  version: 1.83.0
+  resolution: "lucide@npm:1.83.0"
+  checksum: 10/bc817badc5a42e73cbc1e888a4d952a45a069569a50a2a241ba5afd43693f02fcdcd71a66f4b6a01d16214b30326d4309dfb8b49e4faafaf40bf0ea923613f96
   languageName: node
   linkType: hard
 
